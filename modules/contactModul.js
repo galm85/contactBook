@@ -34,16 +34,16 @@ const Contact = mongoose.model('Contact', contactSchema);
 
 function validationContact(contact) {
     const schema = Joi.object({
-        firstName: Joi.required().string().minlength(2).maxlength(255),
-        lastName: Joi.required().string().minlength(2).maxlength(255),
-        email: Joi.email().string(),
-        phone: Joi.string().phone(),
+        firstName: Joi.string().min(2).max(255).required(),
+        lastName: Joi.string().min(2).max(255).required(),
+        email: Joi.string().email(),
+        phone: Joi.string(),
         address: Joi.string(),
         favorite: Joi.boolean()
 
     })
 
-    return schema.validate(contact, schema);
+    return schema.validate(contact);
 }
 
 exports.Contact = Contact;
