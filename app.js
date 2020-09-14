@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const port = process.env.PORT || 3900;
 const contactRoute = require("./routes/contactsRoute");
-const cors = require ('cors')
+const cors = require('cors')
 
 mongoose
   .connect("mongodb://localhost/contactBook", {
